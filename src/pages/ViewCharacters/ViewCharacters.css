@@ -10,8 +10,9 @@
   font-size: 2rem;
 }
 
-.view-message {
+.view-message, .create-link {
   font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .charts {

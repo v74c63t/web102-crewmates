@@ -7,7 +7,6 @@
   top: 0;
   left: 0;
   bottom: 0;
-  /* background-color: #8ee1ff; */
   background-color: #D1B2E8;
   padding: 2rem;
 }
@@ -28,5 +27,5 @@
 }
 
 .link:hover {
-  color: rgb(172, 171, 171)
+  color: rgb(157, 157, 157);
 }

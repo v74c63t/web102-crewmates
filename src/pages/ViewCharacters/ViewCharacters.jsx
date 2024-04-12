@@ -57,14 +57,14 @@ const ViewCharacters = () => {
                 <div className="chart">
                   <div className="label">Number of Characters by Path</div>
                   <PieChart width={320} height={240}>
-                    <Pie data={pathData} dataKey="count" nameKey="path" cx="50%" cy="50%" outerRadius={80} fill="#82ca9d" />
+                    <Pie data={pathData} dataKey="count" nameKey="path" cx="50%" cy="50%" outerRadius={80} fill="#D1B2E8" />
                     <Tooltip />
                   </PieChart>
                 </div>
                 <div className="chart">
                   <div className="label">Number of Characters by Element</div>
                   <PieChart width={320} height={240}>
-                    <Pie data={elementData} dataKey="count" nameKey="element" cx="50%" cy="50%" outerRadius={80} fill="#82ca9d" />
+                    <Pie data={elementData} dataKey="count" nameKey="element" cx="50%" cy="50%" outerRadius={80} fill="#D1B2E8" />
                     <Tooltip />
                   </PieChart>
                 </div>
@@ -84,9 +84,7 @@ const ViewCharacters = () => {
           <div>
             <img src="https://pbs.twimg.com/media/GAkIhvGXsAA12Xh.png" alt="march" width={200} height={200} />
             <h4 className="view-message">
-              <Link to="/create">
-                Start by creating a character here
-              </Link>
+              Get started by heading over to the <Link className="create-link" to="/create">Create a Character page!</Link>
             </h4>
           </div>
         ): ""}
