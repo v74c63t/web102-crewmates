@@ -6,6 +6,35 @@
   font-size: 2.4rem;
 }
 
+.summary-header, .character-header {
+  font-size: 2rem;
+}
+
 .view-message {
   font-size: 1.8rem;
+}
+
+.charts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: bold;
+  font-size: large;
+}
+
+.chart {
+  border-radius: 1rem;
+  background-color: #EDCADC;
+  padding: 1rem;
 }
