@@ -1,0 +1,40 @@
+.character-con {
+  color:white;
+  border-radius: 1rem;
+  background-color: #EDCADC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.edit-link-con {
+  color: #4b6ab7;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.edit-link-con:hover {
+  color: rgb(89, 174, 253);
+}
+
+.basic-detail-con {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.name-con {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.detail-link {
+  color: inherit;
+}
+
+.detail-link:hover {
+  color: inherit;
+}

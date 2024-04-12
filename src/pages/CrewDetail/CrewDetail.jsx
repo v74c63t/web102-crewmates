@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import './CrewDetail.css'
 import { supabase } from "../../Client";
+import CharacterDetailed from "../../components/CharacterDetailed/CharacterDetailed";
 
 const CrewDetail = () => {
   const {id} = useParams()
@@ -23,16 +24,7 @@ const CrewDetail = () => {
     <div>
       {character !== null ?
         (
-          <div className="detail">
-            <h2>Name: {character.name}</h2>
-            <h3>Element: {character.element}</h3>
-            <h3>Path: {character.path}</h3>
-            <h4>Base Stats</h4>
-            <h5>HP: {character.hp}</h5>
-            <h5>Attack: {character.atk}</h5>
-            <h5>Defense: {character.def}</h5>
-            <h5>Speed: {character.spd}</h5>
-          </div>
+          <CharacterDetailed character={character} />
         )
       :""}
     </div>

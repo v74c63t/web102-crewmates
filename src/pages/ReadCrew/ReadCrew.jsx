@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { supabase } from "../../Client"
 import './ReadCrew.css'
 import { Link } from "react-router-dom"
+import CharacterCondensed from "../../components/CharacterCondensed/CharacterCondensed"
 
 const ReadCrew = () => {
   const [characters, setCharacters] = useState([])
@@ -32,14 +33,7 @@ const ReadCrew = () => {
               {
                 characters.map((character, i) => {
                   return (
-                    <Link key={i} to={`/detail/${character.id}`}>
-                      <div className="character">
-                        <div>{character.name}</div>
-                        <div>{character.path}</div>
-                        <div>{character.element}</div>
-                        <Link className="edit-link" to={`/edit/${character.id}`}>Edit</Link>
-                      </div>
-                    </Link>
+                    <CharacterCondensed key={i} character={character} />
                   )
                 })
               }

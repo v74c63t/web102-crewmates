@@ -1,0 +1,43 @@
+
+.character {
+  color: white;
+  border-radius: 1rem;
+  background-color: #EDCADC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 2rem;
+}
+
+.basic-detail {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.stats {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.edit-link {
+  color: #4b6ab7;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.edit-link:hover {
+  color: rgb(89, 174, 253);
+}
+
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.stats-header {
+  font-size: 2rem;
+  font-weight: bold;
+}
