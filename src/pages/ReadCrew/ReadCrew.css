@@ -1,3 +1,11 @@
 .view {
   margin:5%
 }
+
+.character {
+  color: black;
+}
+
+.edit-link {
+  color: white;
+}

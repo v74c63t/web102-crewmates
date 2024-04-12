@@ -32,11 +32,14 @@ const ReadCrew = () => {
               {
                 characters.map((character, i) => {
                   return (
-                    <div key={i}>
-                      <div>{character.name}</div>
-                      <div>{character.path}</div>
-                      <div>{character.element}</div>
-                    </div>
+                    <Link key={i} to={`/detail/${character.id}`}>
+                      <div className="character">
+                        <div>{character.name}</div>
+                        <div>{character.path}</div>
+                        <div>{character.element}</div>
+                        <Link className="edit-link" to={`/edit/${character.id}`}>Edit</Link>
+                      </div>
+                    </Link>
                   )
                 })
               }
