@@ -15,12 +15,12 @@ const NavBar = () => {
             </li>
             <li>
               <Link className='link' to="/create">
-                Create a Crewmate
+                Create a Character
               </Link>
             </li>
             <li>
               <Link className='link' to="/view">
-                Crewmate Gallery
+                Character Gallery
               </Link>
             </li>
           </ul>

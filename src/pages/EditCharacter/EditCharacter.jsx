@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import './EditCrew.css'
+import './EditCharacter.css'
 import { supabase } from "../../Client";
 
 
-const EditCrew = () => {
+const EditCharacter = () => {
 
   const {id} = useParams()
   const [hpMin, setHpMin] = useState(100)
@@ -263,4 +263,4 @@ const EditCrew = () => {
   )
 }
 
-export default EditCrew
+export default EditCharacter

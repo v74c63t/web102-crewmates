@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import './CrewDetail.css'
+import './CharacterDetail.css'
 import { supabase } from "../../Client";
 import CharacterDetailed from "../../components/CharacterDetailed/CharacterDetailed";
 
-const CrewDetail = () => {
+const CharacterDetail = () => {
   const {id} = useParams()
 
   const [character, setCharacter] = useState(null)
@@ -31,4 +31,4 @@ const CrewDetail = () => {
   )
 }
 
-export default CrewDetail
+export default CharacterDetail

@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './index.css'
-import ReadCrew from './pages/ReadCrew/ReadCrew.jsx';
-import EditCrew from './pages/EditCrew/EditCrew.jsx';
-import CreateCrew from './pages/CreateCrew/CreateCrew.jsx';
+import ViewCharacters from './pages/ViewCharacters/ViewCharacters.jsx';
+import EditCharacter from './pages/EditCharacter/EditCharacter.jsx';
+import CreateCharacter from './pages/CreateCharacter/CreateCharacter.jsx';
 import NavBar from './components/NavBar/NavBar.jsx';
 import { Link } from "react-router-dom";
-import CrewDetail from './pages/CrewDetail/CrewDetail.jsx';
+import CharacterDetail from './pages/CharacterDetail/CharacterDetail.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,10 +16,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Routes>
       <Route path="/" element={<NavBar/>}>
         <Route index={true} element={<App />} />
-        <Route index={false} path="/edit/:id"  element={<EditCrew />} />
-        <Route index={false} path="/detail/:id"  element={<CrewDetail />} />
-        <Route index={false} path="/create"  element={<CreateCrew />} />
-        <Route index={false} path="/view"  element={<ReadCrew />} />
+        <Route index={false} path="/edit/:id"  element={<EditCharacter />} />
+        <Route index={false} path="/character/:id"  element={<CharacterDetail />} />
+        <Route index={false} path="/create"  element={<CreateCharacter />} />
+        <Route index={false} path="/view"  element={<ViewCharacters />} />
         <Route
           path="*"
           element={

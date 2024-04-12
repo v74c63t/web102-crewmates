@@ -5,7 +5,7 @@ const CharacterCondensed = ({character}) => {
   return (
     <>
       <div className="character-con">
-        <Link className='detail-link' to={`/detail/${character.id}`}>
+        <Link className='detail-link' to={`/character/${character.id}`}>
           <div className='name-con'>Name: {character.name}</div>
           <div className='basic-detail-con'>Element: {character.element}</div>
           <div className='basic-detail-con'>Path: {character.path}</div>

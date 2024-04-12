@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { supabase } from "../../Client"
-import './CreateCrew.css'
+import './CreateCharacter.css'
 
-const CreateCrew = () => {
+const CreateCharacter = () => {
 
   const [hpMin, setHpMin] = useState(144)
   const [atkMin, setAtkMin] = useState(60)
@@ -212,4 +212,4 @@ const CreateCrew = () => {
   )
 }
 
-export default CreateCrew
+export default CreateCharacter

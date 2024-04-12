@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { supabase } from "../../Client"
-import './ReadCrew.css'
+import './ViewCharacters.css'
 import { Link } from "react-router-dom"
 import CharacterCondensed from "../../components/CharacterCondensed/CharacterCondensed"
 import {
@@ -10,7 +10,7 @@ import {
   Legend
 } from "recharts";
 
-const ReadCrew = () => {
+const ViewCharacters = () => {
   const [characters, setCharacters] = useState([])
   const [pathData, setPathData] = useState([])
   const [elementData, setElementData] = useState([])
@@ -95,4 +95,4 @@ const ReadCrew = () => {
   )
 }
 
-export default ReadCrew
+export default ViewCharacters
