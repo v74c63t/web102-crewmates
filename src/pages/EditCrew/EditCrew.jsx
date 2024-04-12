@@ -11,6 +11,10 @@ const EditCrew = () => {
   const [atkMin, setAtkMin] = useState(60)
   const [defMin, setDefMin] = useState(45)
   const [spdMin, setSpdMin] = useState(90)
+  const [hpMax, setHpMax] = useState(200)
+  const [atkMax, setAtkMax] = useState(105)
+  const [defMax, setDefMax] = useState(100)
+  const [spdMax, setSpdMax] = useState(115)
   // const [max, setMax] = useState(200)
 
   const [character, setCharacter] = useState(null)
@@ -22,9 +26,38 @@ const EditCrew = () => {
                           .select()
                           .eq('id', id)
       setCharacter(data[0])
+      if(data[0].path === 'Abundance') {
+        setHpMin(144)
+      }
+      else if(data[0].path === 'Hunt') {
+        setSpdMin(100)
+      }
+      else if(data[0].path === 'Preservation') {
+        setHpMin(144)
+        setDefMin(78)
+      }
+      else if(data[0].path === 'Destruction') {
+        setAtkMin(73)
+      }
     }
     getCharacter()
   }, [id])
+
+  const resetStats = () => {
+    setHpMin(100)
+    setAtkMin(60)
+    setDefMin(45)
+    setSpdMin(90)
+    // setCharacter( (prev) => {
+    //   return {
+    //       ...prev,
+    //       'hp':100,
+    //       'atk': 60,
+    //       'def': 45,
+    //       'spd': 90,
+    //   }
+    // })
+  }
 
   const handleChange = (event) => {
     const {name, value} = event.target;
@@ -32,41 +65,56 @@ const EditCrew = () => {
       resetStats()
       if(value === 'Abundance') {
         setHpMin(144)
-        setCharacter( (prev) => {
-          return {
-              ...prev,
-              'hp':144,
-          }
-        })
+        if(character.hp < 144) {
+          setCharacter( (prev) => {
+            return {
+                ...prev,
+                'hp':144,
+            }
+          })
+        }
       }
       else if(value === 'Hunt') {
         setSpdMin(100)
-        setCharacter( (prev) => {
-          return {
-              ...prev,
-              'spd':100,
-          }
-        })
+        if(character.spd < 100) {
+          setCharacter( (prev) => {
+            return {
+                ...prev,
+                'spd':100,
+            }
+          })
+        }
       }
       else if(value === 'Preservation') {
         setHpMin(144)
         setDefMin(78)
-        setCharacter( (prev) => {
-          return {
-              ...prev,
-              'hp':144,
-              'def': 78,
-          }
-        })
+        if(character.hp < 144) {
+          setCharacter( (prev) => {
+            return {
+                ...prev,
+                'hp':144,
+            }
+          })
+        }
+        if(character.def < 78) {
+          setCharacter( (prev) => {
+            return {
+                ...prev,
+                'def':78,
+            }
+          })
+        }
       }
       else if(value === 'Destruction') {
         setAtkMin(73)
-        setCharacter( (prev) => {
-          return {
-              ...prev,
-              'atk':73,
-          }
-        })
+        if(character.atk < 73) {
+          setCharacter( (prev) => {
+            return {
+                ...prev,
+                'atk':73,
+            }
+          })
+        }
       }
     }
     setCharacter( (prev) => {
@@ -105,11 +153,22 @@ const EditCrew = () => {
 
   const updateCharacter = async (event) => {
     event.preventDefault()
-    await supabase
-        .from('crewmates')
-        .update(character)
-        .eq('id', id);
-    window.location.replace('/')
+    if(
+      (character.hp >= hpMin && character.hp <= hpMax) && 
+      (character.atk >= atkMin && character.atk <= atkMax) &&
+      (character.def >= defMin && character.def <= defMax) &&
+      (character.spd >= spdMin && character.spd <= spdMax) 
+    )
+    {
+      await supabase
+          .from('crewmates')
+          .update(character)
+          .eq('id', id);
+      window.location.replace('/')
+    }
+    else {
+      alert("Please make sure all the inputted stats are within the range of the min and max values listed for each stat.")
+    }
   }
 
   const deleteCharacter = async (event) => {
@@ -169,26 +228,26 @@ const EditCrew = () => {
               <br/>  */}
 
               <div>
-                <label htmlFor="hp">Hp: </label>
-                <input type="number" id="hp" name="hp" min={hpMin} max={200} value={character.hp} onChange={handleChange} />
+                <label htmlFor="hp">Hp({hpMin}-{hpMax}): </label>
+                <input type="number" id="hp" name="hp" min={hpMin} max={hpMax} value={character.hp} onChange={handleChange} />
               </div>
               {/* <br/> */}
 
               <div>
-                <label htmlFor="atk">Attack: </label>
-                <input type="number" id="atk" name="atk" min={atkMin} max={105} value={character.atk} onChange={handleChange} />
+                <label htmlFor="atk">Attack({atkMin}-{atkMax}): </label>
+                <input type="number" id="atk" name="atk" min={atkMin} max={atkMax} value={character.atk} onChange={handleChange} />
               </div>
               {/* <br/> */}
 
               <div>
-                <label htmlFor="def">Defense: </label>
-                <input type="number" id="def" name="def" min={defMin} max={100} value={character.def} onChange={handleChange} />
+                <label htmlFor="def">Defense({defMin}-{defMax}): </label>
+                <input type="number" id="def" name="def" min={defMin} max={defMax} value={character.def} onChange={handleChange} />
               </div>
               {/* <br/> */}
 
               <div>
-                <label htmlFor="spd">Speed: </label>
-                <input type="number" id="spd" name="spd" min={spdMin} max={115} value={character.spd} onChange={handleChange} />
+                <label htmlFor="spd">Speed({spdMin}-{spdMax}): </label>
+                <input type="number" id="spd" name="spd" min={spdMin} max={spdMax} value={character.spd} onChange={handleChange} />
               </div>
               {/* <br/>
               <br/> */}
