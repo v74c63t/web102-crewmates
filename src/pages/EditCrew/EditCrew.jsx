@@ -126,59 +126,76 @@ const EditCrew = () => {
       {character !== null ?
         (
           <div className="edit">
-            <form>
-              <label htmlFor="name">Name</label> <br />
-              <input type="text" id="name" name="name" value={character.name} onChange={handleChange} /><br />
-              <br/>
+            <form className="form">
+              <h1>Update a Character</h1>
+              <div>
+                <label htmlFor="name">Name: </label>
+                <input type="text" id="name" name="name" value={character.name} onChange={handleChange} />
+              </div>
+              {/* <br />
+              <br/> */}
 
-              <label htmlFor="path">Path: </label>
-              <select name="path" id="path" value={character.path} onChange={handleChange}>
-                <option value="Preservation">Preservation</option>
-                <option value="Destruction">Destruction</option>
-                <option value="Hunt">Hunt</option>
-                <option value="Erudition">Erudition</option>
-                <option value="Harmony">Harmony</option>
-                <option value="Nihility">Nihility</option>
-                <option value="Abundance">Abundance</option>
-              </select>
-              <br /> 
-              <br/> 
+              <div>
+                <label htmlFor="element">Element: </label>
+                <select name="element" id="element" value={character.element} onChange={e => {setCharacter((prev) => {
+                                                                                      return ({...prev,
+                                                                                      'element': e.target.value})
+                                                                                    })}}>
+                  <option value="Ice">Ice</option>
+                  <option value="Physical">Physical</option>
+                  <option value="Fire">Fire</option>
+                  <option value="Lightning">Lightning</option>
+                  <option value="Wind">Wind</option>
+                  <option value="Quantum">Quantum</option>
+                  <option value="Imaginary">Imaginary</option>
+                </select>
+              </div>
+              {/* <br /> 
+              <br/> */}
 
-              <label htmlFor="element">Element: </label>                                                                       
-              <select name="element" id="element" value={character.element} onChange={e => {setCharacter((prev) => {
-                                                                                    return ({...prev,
-                                                                                    'element': e.target.value})
-                                                                                  })}}>
-                <option value="Ice">Ice</option>
-                <option value="Physical">Physical</option>
-                <option value="Fire">Fire</option>
-                <option value="Lightning">Lightning</option>
-                <option value="Wind">Wind</option>
-                <option value="Quantum">Quantum</option>
-                <option value="Imaginary">Imaginary</option>
-              </select>
-              <br /> 
-              <br/>
+              <div>
+                <label htmlFor="path">Path: </label>
+                <select name="path" id="path" value={character.path} onChange={handleChange}>
+                  <option value="Preservation">Preservation</option>
+                  <option value="Destruction">Destruction</option>
+                  <option value="Hunt">Hunt</option>
+                  <option value="Erudition">Erudition</option>
+                  <option value="Harmony">Harmony</option>
+                  <option value="Nihility">Nihility</option>
+                  <option value="Abundance">Abundance</option>
+                </select>
+              </div>
+              {/* <br /> 
+              <br/>  */}
 
-              <label htmlFor="hp">Hp: </label>
-              <input type="number" id="hp" name="hp" min={hpMin} max={200} value={character.hp} onChange={handleChange} />
-              <br/>
+              <div>
+                <label htmlFor="hp">Hp: </label>
+                <input type="number" id="hp" name="hp" min={hpMin} max={200} value={character.hp} onChange={handleChange} />
+              </div>
+              {/* <br/> */}
 
-              <label htmlFor="atk">Attack: </label>
-              <input type="number" id="atk" name="atk" min={atkMin} max={105} value={character.atk} onChange={handleChange} />
-              <br/>
+              <div>
+                <label htmlFor="atk">Attack: </label>
+                <input type="number" id="atk" name="atk" min={atkMin} max={105} value={character.atk} onChange={handleChange} />
+              </div>
+              {/* <br/> */}
 
-              <label htmlFor="def">Defense: </label>
-              <input type="number" id="def" name="def" min={defMin} max={100} value={character.def} onChange={handleChange} />
-              <br/>
+              <div>
+                <label htmlFor="def">Defense: </label>
+                <input type="number" id="def" name="def" min={defMin} max={100} value={character.def} onChange={handleChange} />
+              </div>
+              {/* <br/> */}
 
-              <label htmlFor="spd">Speed: </label>
-              <input type="number" id="spd" name="spd" min={spdMin} max={115} value={character.spd} onChange={handleChange} />
-              <br/>
-              <br/>
-
-              <button className="deleteButton" onClick={deleteCharacter} >Delete</button>
-              <input type="submit" value="Update" onClick={updateCharacter} />
+              <div>
+                <label htmlFor="spd">Speed: </label>
+                <input type="number" id="spd" name="spd" min={spdMin} max={115} value={character.spd} onChange={handleChange} />
+              </div>
+              {/* <br/>
+              <br/> */}
+              <div>
+                <button className="btn" onClick={deleteCharacter} >Delete</button>
+                <input type="submit" value="Update" onClick={updateCharacter} className="btn"  />
+              </div>
             </form>
           </div>
         )
