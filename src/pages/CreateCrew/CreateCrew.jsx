@@ -32,7 +32,6 @@ const CreateCrew = () => {
 
   const handleReset = (event) => {
     event.preventDefault()
-    console.log('hello?')
     setCharacter({
       'name': "",
       'path': "Preservation",
