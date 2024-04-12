@@ -52,7 +52,7 @@ const ReadCrew = () => {
         {
           characters !== null && characters.length > 0 ? (
             <div className="data">
-              <h2 className="summary-header">Summary Statistics</h2>
+              <h2 className="summary-header">Summary Stats</h2>
               <div className="charts">
                 <div className="chart">
                   <div className="label">Number of Characters by Path</div>
