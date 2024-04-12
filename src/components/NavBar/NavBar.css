@@ -1,0 +1,32 @@
+.side-bar {
+  height: 100%;
+  width: 12%;
+  position: fixed;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  /* background-color: #8ee1ff; */
+  background-color: rgb(144, 86, 179);
+  padding: 2rem;
+}
+
+
+.nav-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover {
+  color: rgb(172, 171, 171)
+}
