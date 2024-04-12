@@ -15,7 +15,7 @@ const ReadCrew = () => {
                           .select()
                           .order('created_at', {ascending: false})
       setCharacters(data)
-      if(data.length === 0) {
+      if(message.length === 0) {
         setMessage("No Characters Yet")
       }
     }
@@ -26,7 +26,7 @@ const ReadCrew = () => {
   return (
     <div>
       <div className="view">
-      <h2>Character Gallery</h2>
+      <h2 className="view-header">Character Gallery</h2>
         {
           characters !== null && characters.length > 0 ? (
             <div>
@@ -38,10 +38,10 @@ const ReadCrew = () => {
                 })
               }
             </div>
-          ) : <h4>{message}</h4>
+          ) : <h4 className="view-message">{message}</h4>
         }
         {message === 'No Characters Yet' ? (
-          <h4>
+          <h4 className="view-message">
             <Link to="/create">
               Start by Creating a Character Here
             </Link>
