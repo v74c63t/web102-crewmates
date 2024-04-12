@@ -6,8 +6,7 @@ import CharacterCondensed from "../../components/CharacterCondensed/CharacterCon
 import {
   Tooltip,
   PieChart,
-  Pie,
-  Legend
+  Pie
 } from "recharts";
 
 const ViewCharacters = () => {

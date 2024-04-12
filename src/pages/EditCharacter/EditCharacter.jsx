@@ -125,32 +125,6 @@ const EditCharacter = () => {
     })
   }
 
-  // const createCharacter = async(event) => {
-  //   event.preventDefault()
-  //   console.log(character)
-  //   await supabase
-  //         .from('crewmates')
-  //         .insert(character)
-  //         .select()
-  //   window.location.replace('/')
-
-  // }
-
-  // const handleReset = (event) => {
-  //   event.preventDefault()
-  //   setCharacter({
-  //     'name': "",
-  //     'path': "Preservation",
-  //     'element': "Ice",
-  //     'atk': min,
-  //     'spd': min,
-  //     'hp': min,
-  //     'def': min
-  //   })
-  //   setMin(1)
-  //   // setMax(200)
-  // }
-
   const updateCharacter = async (event) => {
     event.preventDefault()
     if(
@@ -191,8 +165,6 @@ const EditCharacter = () => {
                 <label htmlFor="name">Name: </label>
                 <input type="text" id="name" name="name" value={character.name} onChange={handleChange} />
               </div>
-              {/* <br />
-              <br/> */}
 
               <div>
                 <label htmlFor="element">Element: </label>
@@ -209,8 +181,6 @@ const EditCharacter = () => {
                   <option value="Imaginary">Imaginary</option>
                 </select>
               </div>
-              {/* <br /> 
-              <br/> */}
 
               <div>
                 <label htmlFor="path">Path: </label>
@@ -224,33 +194,27 @@ const EditCharacter = () => {
                   <option value="Abundance">Abundance</option>
                 </select>
               </div>
-              {/* <br /> 
-              <br/>  */}
 
               <div>
                 <label htmlFor="hp">Hp({hpMin}-{hpMax}): </label>
                 <input type="number" id="hp" name="hp" min={hpMin} max={hpMax} value={character.hp} onChange={handleChange} />
               </div>
-              {/* <br/> */}
 
               <div>
                 <label htmlFor="atk">Attack({atkMin}-{atkMax}): </label>
                 <input type="number" id="atk" name="atk" min={atkMin} max={atkMax} value={character.atk} onChange={handleChange} />
               </div>
-              {/* <br/> */}
 
               <div>
                 <label htmlFor="def">Defense({defMin}-{defMax}): </label>
                 <input type="number" id="def" name="def" min={defMin} max={defMax} value={character.def} onChange={handleChange} />
               </div>
-              {/* <br/> */}
 
               <div>
                 <label htmlFor="spd">Speed({spdMin}-{spdMax}): </label>
                 <input type="number" id="spd" name="spd" min={spdMin} max={spdMax} value={character.spd} onChange={handleChange} />
               </div>
-              {/* <br/>
-              <br/> */}
+
               <div>
                 <button className="btn" onClick={deleteCharacter} >Delete</button>
                 <input type="submit" value="Update" onClick={updateCharacter} className="btn"  />
