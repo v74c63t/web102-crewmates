@@ -98,7 +98,7 @@ const EditCrew = () => {
                 <option value="Erudition">Erudition</option>
                 <option value="Harmony">Harmony</option>
                 <option value="Nihility">Nihility</option>
-                <option value="Abundance">Abundancey</option>
+                <option value="Abundance">Abundance</option>
               </select>
               <br /> 
               <br/> 
