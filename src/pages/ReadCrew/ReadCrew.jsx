@@ -23,7 +23,7 @@ const ReadCrew = () => {
                           .select()
                           .order('created_at', {ascending: false})
       setCharacters(data)
-      if(message.length === 0) {
+      if(data.length === 0) {
         setMessage("No Characters Yet")
       }
     }
@@ -48,7 +48,7 @@ const ReadCrew = () => {
   return (
     <div>
       <div className="view">
-      <h2 className="view-header">Gallery</h2>
+        <h2 className="view-header">Gallery</h2>
         {
           characters !== null && characters.length > 0 ? (
             <div className="data">
@@ -81,11 +81,14 @@ const ReadCrew = () => {
           ) : <h4 className="view-message">{message}</h4>
         }
         {message === 'No Characters Yet' ? (
-          <h4 className="view-message">
-            <Link to="/create">
-              Start by Creating a Character Here
-            </Link>
-          </h4>
+          <div>
+            <img src="https://pbs.twimg.com/media/GAkIhvGXsAA12Xh.png" alt="march" width={200} height={200} />
+            <h4 className="view-message">
+              <Link to="/create">
+                Start by creating a character here
+              </Link>
+            </h4>
+          </div>
         ): ""}
       </div>
     </div>
