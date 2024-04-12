@@ -4,13 +4,73 @@ import './CreateCrew.css'
 
 const CreateCrew = () => {
 
-  const [min, setMin] = useState(1)
+  const [hpMin, setHpMin] = useState(100)
+  const [atkMin, setAtkMin] = useState(60)
+  const [defMin, setDefMin] = useState(45)
+  const [spdMin, setSpdMin] = useState(90)
   // const [max, setMax] = useState(200)
 
-  const [character, setCharacter] = useState({'name': "", 'path': "Preservation", 'element': "Ice", 'atk': min, 'spd': min, 'hp': min, 'def': min})
+  const [character, setCharacter] = useState({'name': "", 'path': "Preservation", 'element': "Ice", 'atk': atkMin, 'spd': spdMin, 'hp': hpMin, 'def': defMin})
+
+  const resetStats = () => {
+    setHpMin(100)
+    setAtkMin(60)
+    setDefMin(45)
+    setSpdMin(90)
+    setCharacter( (prev) => {
+      return {
+          ...prev,
+          'hp':100,
+          'atk': 60,
+          'def': 45,
+          'spd': 90,
+      }
+    })
+  }
 
   const handleChange = (event) => {
     const {name, value} = event.target;
+    if(name === 'path') {
+      resetStats()
+      if(value === 'Abundance') {
+        setHpMin(144)
+        setCharacter( (prev) => {
+          return {
+              ...prev,
+              'hp':144,
+          }
+        })
+      }
+      else if(value === 'Hunt') {
+        setSpdMin(100)
+        setCharacter( (prev) => {
+          return {
+              ...prev,
+              'spd':100,
+          }
+        })
+      }
+      else if(value === 'Preservation') {
+        setHpMin(144)
+        setDefMin(78)
+        setCharacter( (prev) => {
+          return {
+              ...prev,
+              'hp':144,
+              'def': 78,
+          }
+        })
+      }
+      else if(value === 'Destruction') {
+        setAtkMin(73)
+        setCharacter( (prev) => {
+          return {
+              ...prev,
+              'atk':73,
+          }
+        })
+      }
+    }
     setCharacter( (prev) => {
         return {
             ...prev,
@@ -21,7 +81,6 @@ const CreateCrew = () => {
 
   const createCharacter = async(event) => {
     event.preventDefault()
-    console.log(character)
     await supabase
           .from('crewmates')
           .insert(character)
@@ -41,7 +100,7 @@ const CreateCrew = () => {
       'hp': min,
       'def': min
     })
-    setMin(1)
+    resetStats()
     // setMax(200)
   }
 
@@ -54,10 +113,7 @@ const CreateCrew = () => {
           <br/>
 
           <label htmlFor="path">Path: </label>
-          <select name="path" id="path" value={character.path} onChange={e => {setCharacter((prev) => {
-                                                                                return ({...prev,
-                                                                                'path': e.target.value})
-                                                                              })}}>
+          <select name="path" id="path" value={character.path} onChange={handleChange}>
             <option value="Preservation">Preservation</option>
             <option value="Destruction">Destruction</option>
             <option value="Hunt">Hunt</option>
@@ -86,19 +142,19 @@ const CreateCrew = () => {
           <br/>
 
           <label htmlFor="hp">Hp: </label>
-          <input type="number" id="hp" name="hp" min={min} max={200} value={character.hp} onChange={handleChange} />
+          <input type="number" id="hp" name="hp" min={hpMin} max={200} value={character.hp} onChange={handleChange} />
           <br/>
 
           <label htmlFor="atk">Attack: </label>
-          <input type="number" id="atk" name="atk" min={min} max={105} value={character.atk} onChange={handleChange} />
+          <input type="number" id="atk" name="atk" min={atkMin} max={105} value={character.atk} onChange={handleChange} />
           <br/>
 
           <label htmlFor="def">Defense: </label>
-          <input type="number" id="def" name="def" min={min} max={100} value={character.def} onChange={handleChange} />
+          <input type="number" id="def" name="def" min={defMin} max={100} value={character.def} onChange={handleChange} />
           <br/>
 
           <label htmlFor="spd">Speed: </label>
-          <input type="number" id="spd" name="spd" min={min} max={115} value={character.spd} onChange={handleChange} />
+          <input type="number" id="spd" name="spd" min={spdMin} max={115} value={character.spd} onChange={handleChange} />
           <br/>
           <br/>
 
